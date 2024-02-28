@@ -1,26 +1,59 @@
+@font-face {
+  font-family: "flappybirdFont";
+  src: url(./font/flappy.ttf);
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "flappybirdFont", sans-serif;
 }
 
-body {
-  overflow: hidden;
+nav {
+  position: fixed;
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  z-index: 99;
+  justify-content: space-between;
+  background: rgba(170, 170, 170, 0.0666666667);
+}
+nav h3 {
+  letter-spacing: 10px;
+  font-size: 50px;
+  color: black;
+}
+nav button {
+  padding: 20px 30px;
+  letter-spacing: 10px;
+  font-size: 30px;
+  color: white;
+  border: none;
+  background-color: #ee6c4d;
 }
 
 .screen {
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
   position: relative;
-  transition: all 0.2s ease;
   background-color: aquamarine;
 }
-.screen .bars {
-  position: absolute;
-  width: 70px;
-  right: -100%;
+.screen .backgroundContainer {
+  display: flex;
   height: 100%;
+  transition: transform 0.6s ease;
+  transform: translate(80vw);
+}
+.screen .backgroundContainer .bars {
+  width: 70px;
+  height: 100%;
+  margin-inline: 100px;
+  flex-shrink: 0;
   background: linear-gradient(#2a9d8f 30%, transparent 30%, transparent 70%, #2a9d8f 70%);
+}
+.screen .backgroundContainer .bars:nth-child(1) {
+  margin-left: 0px;
 }
 
 .bird {
@@ -29,7 +62,7 @@ body {
   left: 50%;
   width: 100px;
   height: 100px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: fill;
+     object-fit: fill;
   transform: translate(-50%, -50%);
 }/*# sourceMappingURL=style.css.map */

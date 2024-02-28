@@ -1,27 +1,68 @@
+@font-face {
+    font-family: "flappybirdFont";
+    src: url(./font/flappy.ttf);
+  }
+
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "flappybirdFont",sans-serif;
 }
 
-body {
-    overflow: hidden;
+nav{
+    position: fixed;
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    z-index: 99;
+    justify-content: space-between;
+    background: #aaa1;
+
+    h3{
+        letter-spacing: 10px;
+        font-size: 50px;
+        color: black;
+    }
+
+    button{
+        padding: 20px 30px;
+        letter-spacing: 10px;
+        font-size: 30px;
+        color: white;
+        border: none;
+        background-color: #ee6c4d;
+    }
 }
 
 .screen {
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
     position: relative;
-    transition: all 0.2s ease;
     background-color: aquamarine;
-
-    .bars {
-        position: absolute;
-        width: 70px;
-        right: -100%;
+    
+    .backgroundContainer{
+        display: flex;
         height: 100%;
-        background: linear-gradient(#2a9d8f 30%, transparent 30%, transparent 70%, #2a9d8f 70%);
+        transition: transform 0.6s ease;
+        transform: translate(80vw);
+        
+
+        .bars {
+            width: 70px;
+            height: 100%;
+            margin-inline: 100px;
+            flex-shrink: 0;
+            background: linear-gradient(#2a9d8f 30%, transparent 30%, transparent 70%, #2a9d8f 70%);
+
+            &:nth-child(1){
+                margin-left: 0px;
+            }
+        }
     }
+
 }
 
 .bird {
@@ -30,6 +71,6 @@ body {
     left: 50%;
     width: 100px;
     height: 100px;
-    object-fit: cover;
+    object-fit: fill;
     transform: translate(-50%, -50%);
 }
